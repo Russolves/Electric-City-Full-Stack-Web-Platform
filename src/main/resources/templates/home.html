@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+    <title>Electric City Home</title>
+    <!-- Typing animation -->
+    <style>
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .typewriter {
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 0.2em solid;
+      }
+    
+      #typewriter1 {
+        animation: typing1 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+    
+      #typewriter2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 600px;
+        animation: typing2 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+    
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      @keyframes typing1 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+    
+      @keyframes typing2 {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+    
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: white;
+        }
+      }
+    </style>    
+    
+  </head>
+  <body>
+
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <header class="site-navbar" role="banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-11 col-xl-2">
+            <h1 class="mb-0 site-logo"><a th:href="@{/}" class="text-white mb-0">Electric City</a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active"><a th:href="@{/}"><span>Home</span></a></li>
+                <li class="has-children">
+                  <!-- Change this line for dropdown -->
+                  <a href="#"><span>For Investors</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a th:href="@{/menu_one}">Menu One</a></li>
+                    <li><a th:href="@{/menu_two}">Menu Two</a></li>
+                    <li><a th:href="@{/menu_three}">Menu Three</a></li>
+                    <li><a th:href="@{/menu_four}">Menu Four</a></li>
+                    </ul>
+                  </li>
+                  <li><a th:href="@{/users}" href="#"><span>Listings</span></a></li>
+                  <li><a th:href="@{/about}"><span>About</span></a></li>
+
+                  <!-- Show 'Register' and 'Login' buttons when the user is not logged in -->
+                  <li th:unless="${#request.userPrincipal}" ><a th:href="@{/register}" href="#"><span>Register</span></a></li>
+                  <li th:unless="${#request.userPrincipal}" ><a th:href="@{/login}" href="#"><span>Login</span></a></li>
+
+                  <!-- Show the user's first name and 'Logout' button when the user is logged in -->
+                  <li th:if="${#request.userPrincipal}" class="nav-item">
+                    <span class="nav-link">Welcome, <span th:text="${#request.userPrincipal.principal.firstName}"></span></span>
+                  </li>
+                  <li th:if="${#request.userPrincipal}" class="nav-item">
+                    <form th:action="@{/logout}" method="post" style="display:inline;">
+                        <input type="submit" value="Sign Out" class="btn btn-link nav-link" style="padding: 0;"/>
+                    </form>
+                  </li>
+
+
+
+            </ul>
+          </nav>
+        </div>
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="hero" style="background-image: url('images/hero_1.jpg');">
+      <div class="typewriter" id="typewriter1"></div>
+      <div class="typewriter" id="typewriter2" style="display: none;"></div>
+    </div>
+
+    <!-- Stores user current location -->
+    <form id="location-form" th:action="@{/store-location}" method="post" style="display:none;">
+      <input type="hidden" name="latitude" id="latitude" />
+      <input type="hidden" name="longitude" id="longitude" />
+    </form>
+
+    <!-- Type-writing animation -->
+    <script>
+      document.getElementById("typewriter1").textContent = "The future is now";
+      document.getElementById("typewriter2").textContent = "Welcome, to E - city";
+    
+      // Show the second animation after the first one
+      setTimeout(function() {
+        document.getElementById("typewriter1").style.display = "none";
+        document.getElementById("typewriter2").style.display = "block";
+      }, 4000);
+    </script>   
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Get user location and store -->
+    <!-- <script>
+      let locationSubmitted = false;
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            console.log("Latitude: ", latitude);
+            console.log("Longitude: ", longitude);
+
+            document.getElementById("latitude").value = latitude.toFixed(6);
+            document.getElementById("longitude").value = longitude.toFixed(6);
+
+            // Submit the form when the location data is available and hasn't been submitted before
+            if (!locationSubmitted) { // Add this condition to check if the form has been submitted
+              document.getElementById("location-form").submit();
+              locationSubmitted = true; // Set the flag to true after submitting the form
+            }
+          });
+        } else {
+          console.log("Geolocation is not supported by this browser.");
+        }
+      }
+
+      // Call the getLocation function when the user is logged in
+      document.addEventListener("DOMContentLoaded", function () {
+        // if (document.querySelector("[th\\:attr='firstName']")) {
+        //   getLocation();
+        // }
+        getLocation();
+      });
+    </script> -->
+
+    <!-- Get user location and store -->
+    <script th:if="${#request.userPrincipal}">
+      let locationSubmitted = false;
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            console.log("Latitude: ", latitude);
+            console.log("Longitude: ", longitude);
+
+            // Submit the location data when the location data is available and hasn't been submitted before
+            if (!locationSubmitted) {
+              // Send an AJAX request to store the location data
+              fetch("/store-location", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  "X-CSRF-TOKEN": document.querySelector("meta[name='_csrf']").content
+                },
+                body: `latitude=${latitude}&longitude=${longitude}`
+              })
+              .then((response) => {
+                if (response.ok) {
+                  console.log("Location data stored successfully");
+                } else {
+                  console.log("Error storing location data");
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+
+              locationSubmitted = true;
+            }
+          });
+        } else {
+          console.log("Geolocation is not supported by this browser.");
+        }
+      }
+
+      // Call the getLocation function when the user is logged in
+      document.addEventListener("DOMContentLoaded", function () {
+          getLocation();
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    
+        <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/main.js}"></script>
+    
+        <title>Electric City Home</title>
+        <!-- Typing animation -->
+        <style>
+          .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+        
+          .typewriter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.2em solid;
+          }
+        
+          #typewriter1 {
+            animation: typing1 4s steps(40, end), blink-caret 0.75s step-end infinite;
+          }
+        
+          #typewriter2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            animation: typing2 4s steps(40, end), blink-caret 0.75s step-end infinite;
+          }
+        
+          .hero {
+            position: relative;
+            overflow: hidden;
+          }
+          @keyframes typing1 {
+            from {
+              width: 0;
+            }
+            to {
+              width: 100%;
+            }
+          }
+        
+          @keyframes typing2 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+        
+          @keyframes blink-caret {
+            from,
+            to {
+              border-color: transparent;
+            }
+            50% {
+              border-color: white;
+            }
+          }
+        </style>    
+        <style>
+            .carousel-nav {
+                justify-content: space-between;
+                width: 100%;
+                position: absolute;
+                top: 50;
+                left: 0;
+                z-index: 10;
+            }
+        </style>
+      </head>
+  <body>
+    <!-- (Keep your site-mobile-menu and header sections as-is) -->
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+      
+      <header class="site-navbar" role="banner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-11 col-xl-2">
+              <h1 class="mb-0 site-logo"><a th:href="@{/}" class="text-white mb-0">Electric City</a></h1>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                  <li class="active"><a th:href="@{/}"><span>Home</span></a></li>
+                  <li class="has-children">
+                    <!-- Change this line for dropdown -->
+                    <a href="#"><span>For Investors</span></a>
+                    <ul class="dropdown arrow-top">
+                      <li><a th:href="@{/menu_one}">Menu One</a></li>
+                      <li><a th:href="@{/menu_two}">Menu Two</a></li>
+                      <li><a th:href="@{/menu_three}">Menu Three</a></li>
+                      <li><a th:href="@{/menu_four}">Menu Four</a></li>
+                      </ul>
+                    </li>
+                    <li><a th:href="@{/users}" href="#"><span>Listings</span></a></li>
+                    <li><a th:href="@{/about}"><span>About</span></a></li>
+  
+                    <!-- Show 'Register' and 'Login' buttons when the user is not logged in -->
+                    <li th:unless="${#request.userPrincipal}" ><a th:href="@{/register}" href="#"><span>Register</span></a></li>
+                    <li th:unless="${#request.userPrincipal}" ><a th:href="@{/login}" href="#"><span>Login</span></a></li>
+  
+                    <!-- Show the user's first name and 'Logout' button when the user is logged in -->
+                    <li th:if="${#request.userPrincipal}" class="nav-item">
+                      <span class="nav-link">Welcome, <span th:text="${#request.userPrincipal.principal.firstName}"></span></span>
+                    </li>
+                    <li th:if="${#request.userPrincipal}" class="nav-item">
+                      <form th:action="@{/logout}" method="post" style="display:inline;">
+                          <input type="submit" value="Sign Out" class="btn btn-link nav-link" style="padding: 0;"/>
+                      </form>
+                    </li>
+  
+  
+  
+              </ul>
+            </nav>
+          </div>
+  
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
+      </header>
+
+    <!-- New container for horizontal tabs -->
+    <div class="container">
+        <div class="d-flex carousel-nav">
+            <!-- <a href="#" class="nav-tab active">First Tab</a> -->
+            <!-- <a href="#" class="nav-tab">Second Tab</a> -->
+            <!-- <a href="#" class="nav-tab">Third Tab</a> -->
+        </div>
+    </div>
+  
+    <!-- Add a new div with a container, row, and column to center the text -->
+    <div class="container" style="height: 100vh;">
+      <div class="row align-items-center h-100">
+        <div class="col-12 text-center">
+          <!-- Paste the carousel code here -->
+            <div class="content">
+                <div class="container" style="height: 100vh; margin-top: 150px;">
+                   
+                    <div class="owl-carousel owl-1">
+
+                          <!-- Second tab (center)-->
+                          <div class="media-29101 d-md-flex w-100">
+                            <div id="map-container" class="img">
+                            <!-- embed the created google maps here -->
+                              <iframe id="map-iframe" src="https://www.google.com/maps/d/embed?mid=1P3-IB4ISKxCkPwjS-3oxKz2QOSuXZlg&ehbc=2E312F" width="640" height="480"></iframe>
+                            </div>
+                            <div class="text">
+                              <a class="category d-block mb-4" href="#">E-City &mdash; Service Locations</a>
+                              <h2><a href="#">Taking our webservices to the next level</a></h2>
+                            <br />
+                            <br />
+                              <p>Introducing the E-City interactive map, a cutting-edge feature designed to enhance your electric vehicle charging experience. Our user-friendly interface provides a detailed and dynamic visualization of all E-City charging stations, enabling you to effortlessly locate the nearest one. With real-time updates and clear visuals, this innovative map is a valuable resource for electric vehicle owners who prioritize efficiency and convenience.</p>
+                              <br />
+                              <p>Explore the E-City charging network at a glance, and enjoy the added benefit of receiving up-to-date information on the availability and status of each station. Our interactive map is a testament to E-City's commitment to provide seamless and reliable services to our growing community of environmentally-conscious drivers. Access the E-City map today and take the first step towards a greener, smarter, and more sustainable driving experience.</p>
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <p>Current closest E-city Charging Service:</p>
+                              <br />
+                              <p id="user-nearest-location">The closest E-city charging station: </p>
+                            
+                            </div>
+                          </div> <!-- .item -->
+                    </div>   
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- (Keep existing script tags and type-writing animation script) -->
+    <!-- Type-writing animation -->
+    <script>
+        document.getElementById("typewriter1").textContent = "The future is now";
+        document.getElementById("typewriter2").textContent = "Welcome, to E - city";
+      
+        // Show the second animation after the first one
+        setTimeout(function() {
+          document.getElementById("typewriter1").style.display = "none";
+          document.getElementById("typewriter2").style.display = "block";
+        }, 4000);
+      </script>
+      
+     
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.sticky.js"></script>
+      <script src="js/main.js"></script>
+      <!-- Add the necessary carousel script tags -->
+      <script src="js/owl.carousel.min.js"></script>
+    <!-- Script for carousel initalization -->
+      <script>
+        $(document).ready(function() {
+          // Carousel initialization
+          var owl = $('.owl-carousel');
+          owl.owlCarousel({
+            items: 1,
+            loop: false,
+            margin: 10,
+            autoplay: false,    //set autoplay to false
+            // autoplayTimeout: 3000,
+            // autoplayHoverPause: true
+          });
+          
+            // Set initial active carousel item
+        owl.trigger('to.owl.carousel', [0]);
+
+          // Carousel navigation
+          $('.carousel-nav .nav-tab').click(function() {
+            var index = $(this).index();
+            $('.carousel-nav .nav-tab').removeClass('active'); // Remove active class from all tabs
+            $(this).addClass('active'); // Add active class to the clicked tab
+            owl.trigger('to.owl.carousel', [index]);
+            return false;
+          });
+        });
+      </script>
+      
+      <!-- Attempting to show the user's current location within the embedded maps -->
+      <script>
+        function updateUserLocationOnMap(latitude, longitude) {
+          const mapIframe = document.getElementById("map-iframe");
+          const mapUrl = `https://www.google.com/maps/d/embed?mid=1P3-IB4ISKxCkPwjS-3oxKz2QOSuXZlg&ehbc=2E312F&ll=${latitude},${longitude}&z=14`;
+          mapIframe.src = mapUrl;
+        }
+
+        //Display user location through this function
+        function displayUserLocation(latitude, longitude) {
+            const userLocationElement = document.getElementById("user-nearest-location");
+            var ecitychargingstation_1 = [40.45255, -86.84996];
+            var ecitychargingstation_2 = [40.41318, -86.82752];
+            var ecitychargingstation_3 = [40.74789, -86.78166];
+            const ecitychargingstation_list = [ecitychargingstation_1, ecitychargingstation_2, ecitychargingstation_3];
+            const user_location = [latitude, longitude];
+
+            // Store values of proximity
+            const proximity = [];
+            // Calculate closest store
+            for (var k = 0; k <= ecitychargingstation_list.length-1; k++){
+                let temp = 0;
+                for (var i = 0; i <= ecitychargingstation_list[k].length-1; i++){
+                    temp += Math.pow(user_location[i] - ecitychargingstation_list[k][i], 2);
+                }
+                //Pythagorean distance of lat and long
+                proximity.push(Math.sqrt(temp));
+            }
+            //Get min-value of distance
+            const min_distance = Math.min(...proximity);
+            let min_distance_index = proximity.indexOf(min_distance);
+            console.log("Min distance found between current location and charging station ", min_distance_index);
+            
+            //Determine which of the locations is closest
+            if (min_distance_index === 0){
+                userLocationElement.textContent = "East 200 N next to Wildcat Creek";
+            } else if (min_distance_index === 1){
+                userLocationElement.textContent = "Walmart 4205 Commerce Dr, Lafayette, IN 47905";
+            } else if (min_distance_index === 2){
+                userLocationElement.textContent = "1088 W Broadway St, Monticello, IN 47960";
+            } else {
+                throw new Error ("Your implementation was incorrect");
+            }
+            
+        }
+      
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                updateUserLocationOnMap(latitude, longitude);
+                displayUserLocation(latitude, longitude);
+              },
+              (error) => {
+                console.error("Error getting location", error);
+              }
+            );
+          } else {
+            console.error("Geolocation is not supported by this browser.");
+          }
+        }
+      
+        getLocation();
+      </script>      
+  </body>
+</html>
