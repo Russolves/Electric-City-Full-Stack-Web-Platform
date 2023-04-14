@@ -24,4 +24,3 @@ To run the project locally, follow these steps:
 - jQuery
 - JavaScript
 - JUnit
-
