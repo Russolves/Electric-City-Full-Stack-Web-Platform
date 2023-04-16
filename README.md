@@ -15,7 +15,7 @@ To run the project locally, follow these steps:
 3. Run the project using the mvn spring-boot:run command
 
 # Technologies Used
-- Java 11
+- Java 1
 - Spring Boot
 - Thymeleaf
 - HTML5
