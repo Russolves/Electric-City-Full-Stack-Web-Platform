@@ -95,6 +95,41 @@
                 z-index: 10;
             }
         </style>
+        <!-- Add the new CSS styles -->
+        <style>
+          .media-29101 {
+            display: flex;
+            flex-wrap: nowrap;
+          }
+
+          .media-29101 .img {
+            flex: 1;
+            max-width: 50%;
+          }
+
+          .media-29101 .text {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 20px;
+          }
+        </style>
+
+        <!-- Add watermark style -->
+        <style>
+          .watermark {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #080808;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+          }
+        </style>
       </head>
   <body>
     <!-- (Keep your site-mobile-menu and header sections as-is) -->
@@ -122,10 +157,10 @@
                     <!-- Change this line for dropdown -->
                     <a href="#"><span>For Investors</span></a>
                     <ul class="dropdown arrow-top">
-                      <li><a th:href="@{/menu_one}">Menu One</a></li>
-                      <li><a th:href="@{/menu_two}">Menu Two</a></li>
-                      <li><a th:href="@{/menu_three}">Menu Three</a></li>
-                      <li><a th:href="@{/menu_four}">Menu Four</a></li>
+                      <li><a th:href="@{/menu_one}">Context Analysis</a></li>
+                      <li><a th:href="@{/menu_two}">Business Model</a></li>
+                      <li><a th:href="@{/menu_three}">Advertisements</a></li>
+                      <li><a th:href="@{/menu_four}">Accounting</a></li>
                       </ul>
                     </li>
                     <li><a th:href="@{/users}" href="#"><span>Listings</span></a></li>
@@ -175,36 +210,46 @@
                    
                     <div class="owl-carousel owl-1">
                         <!-- First tab -->
-                        <div class="media-29101 d-md-flex w-100">
-                            <div class="img">
-                              <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
-                            </div>
-                            <div class="text">
-                              <a class="category d-block mb-4" href="#">Travel &mdash; First Tab</a>
-                              <h2><a href="#">Take your mobile photography to the next level</a></h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae fuga optio dolorem, fugit voluptates sint ducimus praesentium iste!</p>
-                            </div>
-                          </div> <!-- .item -->
+                        <div class="media-29101 w-100">
+                          <div class="img">
+                            <img src="images/purpose-context.jpg" alt="Image" class="img-fluid">
+                          </div>
+                          <div class="text">
+                              <a class="category d-block mb-4" href="#">Purpose Context Map &mdash; First Tab</a>
+                              <h2><a href="#">Our purpose and where we come in</a></h2>
+                              <br>
+                              <p>Given that as of now, EVs do not yet own the majority of the automobile market, the specificity of the market our company is trying to target can be primarily categorized into individual categories on which opportunity space can be projected. Dividing this market into segments, we can identify factors such as location, landscape, and types of customers; with regard to location, we have identified key market segments in the Midwest, Northeast, West, and South regions of the United States.</p>
+                              <br>
+                              <p>For landscape, we are focusing on primary areas in which we see these electric charger stations being implemented, like cities, rural areas, and suburban communities. To further narrow down our opportunity space we have divided customers into the following groups, long-distance travelers, short-distance travelers, families, and individuals. Through mixing and matching these different contexts and identifying areas of the market that have not yet been exploited, we hope to gain insight into the current market competition for EV charger stations. </p>
+                            </div> <!-- .item -->
+                          </div>
                           <!-- Second tab -->
-                          <div class="media-29101 d-md-flex w-100">
+                          <div class="media-29101 w-100">
                             <div class="img">
-                              <img src="images/hero_2.jpg" alt="Image" class="img-fluid">
+                              <img src="images/top-down-analysis.jpg" alt="Image" class="img-fluid">
                             </div>
                             <div class="text">
-                              <a class="category d-block mb-4" href="#">Travel &mdash; Second Tab</a>
-                              <h2><a href="#">Take your mobile photography to the next level</a></h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae fuga optio dolorem, fugit voluptates sint ducimus praesentium iste!</p>
-                            </div>
+                              <a class="category d-block mb-4" href="#">Top Down Analysis &mdash; Second Tab</a>
+                              <h2><a href="#">Assessing our target market and estimating demand at Texas</a></h2>
+                              <br>
+                              <p>Texas currently has a gas infrastructure in place; however, the demand for change to accommodate the rise of EVs on the road has become more prevalent. Currently there are 11,388 gas stations implemented in Texas and about 2,000 electric chargers, indicating a severe lack of EV infrastructure. Our team plans to address this need by constructing a network of multiple charging stations between the three Texan cities.</p>
+                              <br>
+                              <p>Another data point to note is the cost of gas in comparison to electricity. For example, “a 2018 study from the University of Michigan's Transportation Research Institute found the average cost to operate an EV in the U.S. was $485 per year compared with a gasoline-powered vehicle at $1,117(LaReau, 2021)” Given a total number of 11,388 gas stations in Texas (txdmv 2019) and that each gas station consumed an average of 13,481 trillion Btu (2020), by dividing the total consumption by gas stations in Texas we get average consumption per gas station.</p>
+                              <br>
+                              <p>After converting Btu into gallon units (see figure 1) we would then be able to obtain a value of 10,293,825.69 gallons per gas station. Multiplying this by 33.7 kWh per gallon then multiplying it by the ratio of EVs over total vehicles in Texas would give total electric car consumption in kWh units; and by assuming that EVs travel 2.9 miles per kWh (forbes 2022) we are then able to acquire total number of miles traveled by EVs per year in Texas. Converting this into days would give the statistic of 10135.33 miles traveled per day by EV users.</p>
+                          </div>
+
+                          
                           </div> <!-- .item -->
                           <!-- Third tab -->
-                          <div class="media-29101 d-md-flex w-100">
+                          <div class="media-29101 w-100">
                             <div class="img">
-                              <img src="images/hero_3.jpg" alt="Image" class="img-fluid">
+                              <img src="images/tesla-supercharger-ports-map.jpg" alt="Image" class="img-fluid">
                             </div>
                             <div class="text">
-                              <a class="category d-block mb-4" href="#">Travel &mdash; Third Tab</a>
-                              <h2><a href="#">Take your mobile photography to the next level</a></h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae fuga optio dolorem, fugit voluptates sint ducimus praesentium iste!</p>
+                              <a class="category d-block mb-4" href="#">Distribution of Current Superchargers &mdash; Third Tab</a>
+                              <h2><a href="#">Current Market and the distribution of chargers in the U.S.</a></h2>
+                              <p>Looking at the current market, Texas’s limited charging infrastructure offers a prime emerging market to start our company. By assuming that the total number of miles traveled by EVS is proportional to gas consuming vehicles it was determined from a top-down approach that roughly 10,135 EV miles per day were traveled. When applying the bottom-up approach, however, it was calculated that nearly 3 million EV miles were traveled per day. These two assumption methods display the uncertainty associated with demand prediction, however both values confirm that Texas presents a new market opportunity.</p>
                             </div>
                         </div> <!-- .item -->
                     </div>   
@@ -212,6 +257,11 @@
       </div>
     </div>
     </div>
+    </div>
+
+    <!-- add watermark -->
+    <div class="watermark">
+      by Russell Ho
     </div>
 
     <!-- (Keep existing script tags and type-writing animation script) -->
