@@ -1,6 +1,6 @@
 # Electric City EV Charging Web Platform
 Full Stack Web Platform developed for EV Charging Service Strategic Entrepreneurship
-The Electric City EV Charging Web Platform is a comprehensive web platform that provides a subscription-based service for electric vehicle users. The platform uses Java's Spring Boot and Thymeleaf for backend development, HTML5 for front-end design, and MySQL for server-side database management
+The Electric City EV Charging Web Platform is a comprehensive web platform that provides a subscription-based service for electric vehicle users. The platform uses Java's Spring Boot and Thymeleaf for backend development, HTML5 for front-end design, and MySQL for server-side database management.
 
 # Features
 - RESTful API-like features including HTTP methods and path-based routing using object-oriented design
